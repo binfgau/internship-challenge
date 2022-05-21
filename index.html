@@ -1,122 +1,229 @@
 <html>
-    <head>
-        <title>Manabie Internship challenge</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap"
-            rel="stylesheet"
-        />
+  <head>
+    <title>Manabie Internship challenge</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap"
+      rel="stylesheet"
+    />
 
-        <style type="text/css">
-            body {
-                padding: 0;
-                margin: 0;
-                font-family: "Roboto", sans-serif;
-                min-height: 100vh;
-            }
-            footer {
-                background-color: rgb(57, 90, 210);
-                padding: 16px 8px;
-                color: white;
-            }
-            main {
-                margin: 16px;
-            }
-            table {
-                border-collapse: collapse;
-                width: 100%;
-            }
-            table td,
-            table th {
-                border: 1px solid #ddd;
-                padding-left: 4px;
-                padding-right: 4px;
-            }
-            table th {
-                text-align: left;
-            }
-            span.Manabie__quote {
-                background-color: #cccccc;
-                padding-left: 4px;
-                padding-right: 4px;
-            }
-        </style>
-    </head>
+    <style type="text/css">
+      body {
+        padding: 0;
+        margin: 0;
+        font-family: 'Roboto', sans-serif;
+        min-height: 100vh;
+        overflow: hidden;
+      }
+      footer {
+        background-color: rgb(57, 90, 210);
+        padding: 16px 8px;
+        color: white;
+      }
+      main {
+        margin: 16px;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      table td,
+      table th {
+        border: 1px solid #ddd;
+        padding-left: 4px;
+        padding-right: 4px;
+      }
+      table th {
+        text-align: left;
+      }
+      span.Manabie__quote {
+        background-color: #cccccc;
+        padding-left: 4px;
+        padding-right: 4px;
+      }
 
-    <body>
-        <!-- Please help add CSS to make this title only display on one line and add tooltip to view full text -->
-        <h1 id="Manabie__title">
-            Title - Welcome to Manabie internship coding challenge. Thank you
-            for interested in our vacancy of Frontend Engineer. As discussed, we
-            would love to have a more in depth conversation with you
-        </h1>
+      /******************************************************************/
 
-        <main>
-            <h3>Requirement</h3>
-            <ul>
-                <li>
-                    Please help add CSS to make
-                    <span class="Manabie__quote">h1#Manabie__title</span> only
-                    display on one line. And add tooltip to view full text when
-                    hovering on element
-                </li>
-                <li>
-                    Moving
-                    <span class="Manabie__quote">footer#Manabie__footer</span>
-                    to bottom of the screen
-                </li>
-                <li>
-                    Fetching data from Rest API
-                    <a target="_blank" href="https://zwxiws.sse.codesandbox.io/"
-                        >https://zwxiws.sse.codesandbox.io/</a
-                    >
-                    to display on table. For status column, if battery grather
-                    than 90 the status is good, the other is bad
-                </li>
-                <li>
-                    Bonus: If you have time please kindly help add CSS to make
-                    <span class="Manabie__quote">table#Manabie__table</span>
-                    look beautiful than now
-                </li>
-            </ul>
-            <h3>Table - Manabie Device sheet</h3>
-            <table id="Manabie__table">
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>OS</th>
-                    <th>Battery</th>
-                    <!-- If Battery grather than 90 the status is good, the other is bad -->
-                    <th>Status</th>
-                </tr>
-            </table>
-        </main>
+      #Manabie__title {
+        white-space: nowrap;
+        width: auto;
+        text-overflow: ellipsis;
+        position: relative;
+      }
 
-        <!-- Moving footer on the bottom of the screen -->
-        <footer id="Manabie__footer">
-            <p>Footer - Manabie challenge</p>
-        </footer>
-    </body>
+      .tooltiptext {
+        visibility: hidden;
+        width: min-content;
+        background-color: #ddd;
+        color: black;
+        padding: 5px;
+        font-size: 12px;
 
-    <script>
-        function addNewCellInTable() {
-            var table = document.getElementById("Manabie__table");
-            var row = table.insertRow(1); // the first row is hearder
-            var cellID = row.insertCell(0);
-            var cellName = row.insertCell(1);
-            var cellOS = row.insertCell(2);
-            var cellBattery = row.insertCell(3);
-            // If Battery grather than 90 the status is good, the other is bad
-            var cellStatus = row.insertCell(4);
+        /* Position the tooltip text - see examples below! */
+        position: absolute;
+        z-index: 10;
+        top: 100%;
+        right: 5px;
+      }
 
-            cellID.innerHTML = "1";
-            cellName.innerHTML = "Iphone 13";
-            cellOS.innerHTML = "Apple";
-            cellBattery.innerHTML = "92";
-            cellStatus.innerHTML = "Good";
+      #Manabie__title:hover .tooltiptext {
+        visibility: visible;
+      }
+
+      #Manabie__footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+      }
+
+      .Manabie__table {
+        overflow: hidden;
+        overflow-y: scroll;
+        height: 570px;
+      }
+
+      #Manabie__table td,
+      #Manabie__table th {
+        padding: 12px;
+      }
+
+      #Manabie__table tr:nth-child(even) {
+        background-color: #e9ecef;
+      }
+
+      #Manabie__table th {
+        top: 0;
+        z-index: 2;
+        position: sticky;
+        background-color: #087f5b;
+        color: white;
+        width: 20%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Please help add CSS to make this title only display on one line and add tooltip to view full text -->
+    <h1 id="Manabie__title">
+      Title - Welcome to Manabie internship coding challenge. Thank you for
+      interested in our vacancy of Frontend Engineer. As discussed, we would
+      love to have a more in depth conversation with you
+      <span class="tooltiptext"
+        >Title - Welcome to Manabie internship coding challenge. Thank you for
+        interested in our vacancy of Frontend Engineer. As discussed, we would
+        love to have a more in depth conversation with you
+      </span>
+    </h1>
+
+    <main>
+      <h3>Requirement</h3>
+      <ul>
+        <li>
+          Please help add CSS to make
+          <span class="Manabie__quote">h1#Manabie__title</span> only display on
+          one line. And add tooltip to view full text when hovering on element
+        </li>
+        <li>
+          Moving
+          <span class="Manabie__quote">footer#Manabie__footer</span>
+          to bottom of the screen
+        </li>
+        <li>
+          Fetching data from Rest API
+          <a target="_blank" href="https://zwxiws.sse.codesandbox.io/"
+            >https://zwxiws.sse.codesandbox.io/</a
+          >
+          to display on table. For status column, if battery grather than 90 the
+          status is good, the other is bad
+        </li>
+        <li>
+          Bonus: If you have time please kindly help add CSS to make
+          <span class="Manabie__quote">table#Manabie__table</span>
+          look beautiful than now
+        </li>
+      </ul>
+      <h3>Table - Manabie Device sheet</h3>
+      <div class="Manabie__table">
+        <table id="Manabie__table">
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>OS</th>
+            <th>Battery</th>
+            <!-- If Battery grather than 90 the status is good, the other is bad -->
+            <th>Status</th>
+          </tr>
+        </table>
+      </div>
+    </main>
+
+    <!-- Moving footer on the bottom of the screen -->
+    <footer id="Manabie__footer">
+      <p>Footer - Manabie challenge</p>
+    </footer>
+  </body>
+
+  <script>
+    function addNewCellInTable(data) {
+      var table = document.getElementById('Manabie__table');
+      data.forEach((item, index) => {
+        var row = table.insertRow(index + 1); // the first row is hearder
+        var cellID = row.insertCell(0);
+        var cellName = row.insertCell(1);
+        var cellOS = row.insertCell(2);
+        var cellBattery = row.insertCell(3);
+        // If Battery grather than 90 the status is good, the other is bad
+        var cellStatus = row.insertCell(4);
+
+        cellID.innerHTML = item.id;
+        cellName.innerHTML = item.name;
+        cellOS.innerHTML = item.os;
+        cellBattery.innerHTML = item.battery;
+        cellStatus.innerHTML = item.battery > 90 ? 'Good' : 'Bad';
+      });
+    }
+
+    function renderError() {
+      var table = document.getElementById('Manabie__table');
+      var row = table.insertRow(1); // the first row is hearder
+      var cellID = row.insertCell(0);
+      var cellName = row.insertCell(1);
+      var cellOS = row.insertCell(2);
+      var cellBattery = row.insertCell(3);
+      var cellStatus = row.insertCell(4);
+
+      cellID.innerHTML = '!Fail';
+      cellName.innerHTML = '!Fail';
+      cellOS.innerHTML = '!Fail';
+      cellBattery.innerHTML = '!Fail';
+      cellStatus.innerHTML = '!Fail';
+
+      table.insertAdjacentHTML(
+        'beforeBegin',
+        `<div>
+          <span style="color: red">Vùi lòng ấn vào link này để host cho phép localhost lấy được data</span>
+          <a target="_blank" href="https://zwxiws.sse.codesandbox.io/">https://zwxiws.sse.codesandbox.io/</a>
+        </div>`
+      );
+    }
+
+    const addDataInTable = async function () {
+      try {
+        const res = await fetch('https://zwxiws.sse.codesandbox.io/');
+        console.log(res);
+        if (!res.ok) {
+          throw new Error('Problem getting data');
         }
-        addNewCellInTable();
-    </script>
+        const data = await res.json();
+        addNewCellInTable(data);
+      } catch (error) {
+        console.error(` 😡 Problem getting data: ${error.message}`);
+        renderError();
+      }
+    };
+    addDataInTable();
+  </script>
 </html>
